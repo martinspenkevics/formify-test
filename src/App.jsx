@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import "./formify/formify.css";
 import "./formify/formify.es.js";
 
 function App() {
@@ -44,10 +43,24 @@ function App() {
       },
     ],
   };
+
+  const data = JSON.stringify(formDefinition);
+
   return (
-    <div>
-      <h1 className="text-2xl font-bold">Formify Demo</h1>
-      <formify-builder data={JSON.stringify(formDefinition)}></formify-builder>
+    <div className="flex flex-col gap-4">
+      <h1 className="text-2xl font-bold py-2">Formify Demo</h1>
+      <div>
+        <h2 className="text-lg font-bold py-2">Formify Builder</h2>
+        <formify-builder data={data}></formify-builder>
+      </div>
+      <div>
+        <h2 className="text-lg font-bold py-2">Form Filler</h2>
+        <formify-filler data={data}></formify-filler>
+      </div>
+      <div>
+        <h2 className="text-lg font-bold py-2">Form Preview</h2>
+        <formify-viewer data={data}></formify-viewer>
+      </div>
     </div>
   );
 }
