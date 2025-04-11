@@ -4,7 +4,6 @@ import "./formify/formify.es.js";
 import App from "./App.jsx";
 
 import "./index.css";
-import "./formify/formify.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

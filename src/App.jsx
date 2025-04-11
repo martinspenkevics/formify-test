@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import "./formify/formify.es.js";
 
 function App() {
   const formDefinition = {
     title: "My Demo Form",
+
     sections: [
       {
         title: "Personal Information",
@@ -47,19 +48,19 @@ function App() {
   const data = JSON.stringify(formDefinition);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 p-4">
       <h1 className="text-2xl font-bold py-2">Formify Demo</h1>
       <div>
         <h2 className="text-lg font-bold py-2">Formify Builder</h2>
-        <formify-builder data={data}></formify-builder>
+        <formify-builder data={data} translation={"{}"}></formify-builder>
       </div>
       <div>
         <h2 className="text-lg font-bold py-2">Form Filler</h2>
-        <formify-filler data={data}></formify-filler>
+        <formify-filler data={data} translation={"{}"}></formify-filler>
       </div>
       <div>
-        <h2 className="text-lg font-bold py-2">Form Preview</h2>
-        <formify-viewer data={data}></formify-viewer>
+        <h2 className="text-lg font-bold py-2">Form Viewer</h2>
+        <formify-viewer data={data} translation={"{}"}></formify-viewer>
       </div>
     </div>
   );
