@@ -1,2 +1,7 @@
 @import "tailwindcss";
-/* Your custom CSS can go below */
+/* 
+formify-builder,
+formify-viewer,
+formify-filler {
+  --color-primary: red;
+} */

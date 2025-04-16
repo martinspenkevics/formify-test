@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./formify/formify.es.js";
 
 function App() {
@@ -47,16 +47,48 @@ function App() {
 
   const data = JSON.stringify(formDefinition);
 
+  const [buildResult, setBuildResult] = useState(null);
+  const [fillResult, setFillResult] = useState(null);
+  const handleBuild = (data) => {
+    console.log("Form build", data);
+    setBuildResult(data);
+  };
+
+  const handleSubmit = (data) => {
+    console.log("Form submit", data);
+    setFillResult(data);
+  };
+
   return (
-    <div className="flex flex-col gap-4 p-4">
+    <div className="flex flex-col gap-4 p-4 my-app">
       <h1 className="text-2xl font-bold py-2">Formify Demo</h1>
       <div>
         <h2 className="text-lg font-bold py-2">Formify Builder</h2>
-        <formify-builder data={data} translation={"{}"}></formify-builder>
+        <formify-builder
+          data={data}
+          buildHandler={handleBuild}
+        ></formify-builder>
+
+        {buildResult && (
+          <div>
+            <h2 className="font-bold py-2">Last Build Result</h2>
+            <pre>{JSON.stringify(buildResult, null, 2)}</pre>
+          </div>
+        )}
       </div>
       <div>
         <h2 className="text-lg font-bold py-2">Form Filler</h2>
-        <formify-filler data={data} translation={"{}"}></formify-filler>
+        <formify-filler
+          data={data}
+          submitHandler={handleSubmit}
+        ></formify-filler>
+
+        {fillResult && (
+          <div>
+            <h2 className="font-bold py-2">Last Fill Result</h2>
+            <pre>{JSON.stringify(fillResult, null, 2)}</pre>
+          </div>
+        )}
       </div>
       <div>
         <h2 className="text-lg font-bold py-2">Form Viewer</h2>
