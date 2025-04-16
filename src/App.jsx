@@ -64,10 +64,7 @@ function App() {
       <h1 className="text-2xl font-bold py-2">Formify Demo</h1>
       <div>
         <h2 className="text-lg font-bold py-2">Formify Builder</h2>
-        <formify-builder
-          data={data}
-          buildHandler={handleBuild}
-        ></formify-builder>
+        <formify-builder data={data} buildHandler={handleBuild} />
 
         {buildResult && (
           <div>
@@ -78,10 +75,7 @@ function App() {
       </div>
       <div>
         <h2 className="text-lg font-bold py-2">Form Filler</h2>
-        <formify-filler
-          data={data}
-          submitHandler={handleSubmit}
-        ></formify-filler>
+        <formify-filler data={data} submitHandler={handleSubmit} />
 
         {fillResult && (
           <div>
@@ -92,7 +86,7 @@ function App() {
       </div>
       <div>
         <h2 className="text-lg font-bold py-2">Form Viewer</h2>
-        <formify-viewer data={data} translation={"{}"}></formify-viewer>
+        <formify-viewer data={data} />
       </div>
     </div>
   );
